@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
@@ -12,8 +12,9 @@ const client = generateClient<Schema>();
 
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-  const [file, setFile] = React.useState();
 
+  const [file, setFile] = useState<File>();
+  
   const handleChange = (event: any) => {
     setFile(event.target.files[0]);
   };
@@ -47,8 +48,8 @@ function App() {
       <button
           onClick={() =>
             uploadData({
-              path: `picture-submissions/${file.name}`,
-              data: file,
+              path: `picture-submissions/${file?.name}`,
+              data: file || "",
           })
         }
       >
