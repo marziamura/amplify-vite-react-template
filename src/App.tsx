@@ -15,8 +15,10 @@ function App() {
 
   const [file, setFile] = useState<File>();
   
-  const handleChange = (event: any) => {
-    setFile(event.target.files[0]);
+  const handleChange = (event: React.MouseEvent<HTMLInputElement>)=>{
+    const selectedFile = (event.target as HTMLInputElement).files;
+    if (selectedFile)
+      setFile(selectedFile[0]);
   };
 
   useEffect(() => {
