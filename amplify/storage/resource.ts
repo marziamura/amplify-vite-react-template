@@ -4,7 +4,7 @@ import { defineStorage } from '@aws-amplify/backend';
 export const storage = defineStorage({
     name: 's3testbucketforvideodemo',
     access: (allow) => ({
-      'profile-pictures/{entity_id}/*': [
+      'videos/{entity_id}/*': [
         allow.guest.to(['read']),
         allow.entity('identity').to(['read', 'write', 'delete'])
       ],

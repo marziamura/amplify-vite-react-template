@@ -50,12 +50,12 @@ function App() {
       <button
           onClick={() =>
             uploadData({
-              path: `picture-submissions/${file?.name}`,
+              path: `profile-pictures/${file?.name}`,
               data: file || "",
           })
         }
       >
-        Upload
+        Uploadfile
       </button>
       </div>
       </div>
